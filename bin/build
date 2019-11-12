@@ -16,5 +16,4 @@ for ESM in $ESMS; do
   BASE=${BASE%.*}
   MJS=dist/mjs/$BASE-$VERSION_BUMP.mjs
   npx rollup $ESM --context this --file $MJS -f esm
-  npx terser $MJS --compress -m -o $MJS
 done
