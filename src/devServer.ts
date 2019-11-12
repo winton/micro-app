@@ -5,14 +5,15 @@ import { Render } from "@fn2/render"
 import { Router } from "@fn2/router"
 import { Ssr } from "@fn2/ssr"
 import { TinyId } from "@fn2/tiny-id"
+
+import express from "express"
 import undom from "undom"
 
 import { MicroApp } from "./"
+import { MicroAppServer } from "./server"
+
 import { HomeComponent } from "./components/homeComponent"
 import { HeadComponent } from "./components/headComponent"
-
-import express from "express"
-import { MicroAppServer } from "./server"
 
 const port = 4000
 const http = express()
