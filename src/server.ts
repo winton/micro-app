@@ -12,23 +12,17 @@ export class MicroAppServer {
   headComponent: typeof headComponent = null
 
   async route(path: string): Promise<string> {
-    const elements: {
-      body?: Element
-      head?: Element
-    } = {}
+    const elements: Record<string, Element> = {}
 
     await this.fn2.run(elements, [], {
       body: () => this.app.router.route(path).build(),
       head: () => this.headComponent.build(),
     })
 
-    for (const key in elements) {
-      if (elements[key]) {
-        elements[key] = this.ssr.serialize(elements[key])
-      }
-    }
+    const body = this.ssr.serialize(elements.body)
+    const head = this.ssr.serialize(elements.head)
 
-    return `<!doctype html><html>${elements.head}<body>${elements.body}</body></html>`
+    return `<!doctype html><html>${head}<body>${body}</body></html>`
   }
 }
 

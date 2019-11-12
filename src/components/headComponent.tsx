@@ -1,6 +1,8 @@
 import render from "@fn2/render"
+import mjsComponent from "./mjsComponent"
 
 export class HeadComponent {
+  mjsComponent: typeof mjsComponent = null
   render: typeof render = null
 
   build(): Element {
@@ -12,6 +14,7 @@ export class HeadComponent {
         <script>
           {"window.process = { env: { LOG: 1 } }"}
         </script>
+        {this.mjsComponent.build()}
       </head>
     )
   }
