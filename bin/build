@@ -9,7 +9,11 @@ VERSION_BUMP="$(npx semver -i $BUMP $VERSION)"
 rm -rf dist
 tsc -b
 
-ESMS="$(ls -d dist/esm/index.js dist/esm/client.js dist/esm/components/*.js)"
+ESMS="$(ls -d \
+  dist/esm/index.js \
+  dist/esm/client.js \
+  dist/esm/components/*.js \
+)"
 
 for ESM in $ESMS; do
   BASE=${ESM##*/}
