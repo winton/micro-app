@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cd "$(dirname "$0")/../"
+
+LIBS=". $(ls -d node_modules/\@fn2/*)"
+
+for LIB in $LIBS; do
+  aws s3 cp \
+    $LIB/dist/mjs \
+    s3://micro-app \
+    --acl public-read-write \
+    --content-type text/javascript \
+    --recursive \
+    --include "*.mjs"
+done

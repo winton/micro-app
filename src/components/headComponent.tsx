@@ -1,10 +1,10 @@
-/** @jsx this.render.createElement */
 import render from "@fn2/render"
 
 export class HeadComponent {
   render: typeof render = null
 
   build(): Element {
+    const self = this // eslint-disable-line
     return (
       <head>
         <meta charset="utf-8" />
