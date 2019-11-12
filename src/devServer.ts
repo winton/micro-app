@@ -1,37 +1,37 @@
-import loaded from "@fn2/loaded"
-import logger from "@fn2/logger"
-import patch from "@fn2/patch"
-import render from "@fn2/render"
-import router from "@fn2/router"
-import ssr from "@fn2/ssr"
-import tinyId from "@fn2/tiny-id"
+import { Loaded } from "@fn2/loaded"
+import { Logger } from "@fn2/logger"
+import { Patch } from "@fn2/patch"
+import { Render } from "@fn2/render"
+import { Router } from "@fn2/router"
+import { Ssr } from "@fn2/ssr"
+import { TinyId } from "@fn2/tiny-id"
 import undom from "undom"
 
-import app from "./"
-import homeComponent from "./components/homeComponent"
-import headComponent from "./components/headComponent"
+import { MicroApp } from "./"
+import { HomeComponent } from "./components/homeComponent"
+import { HeadComponent } from "./components/headComponent"
 
 import express from "express"
-import server from "./server"
+import { MicroAppServer } from "./server"
 
 const port = 4000
 const http = express()
 
 http.get(["/", "/*"], async (req, res) => {
-  loaded.reset()
+  const server = new MicroAppServer()
 
-  loaded.load({
-    app,
-    headComponent,
-    homeComponent,
-    logger,
-    patch,
-    render,
-    router,
+  new Loaded().load({
+    app: new MicroApp(),
+    dom: undom(),
+    headComponent: new HeadComponent(),
+    homeComponent: new HomeComponent(),
+    logger: new Logger(),
+    patch: new Patch(),
+    render: new Render(),
+    router: new Router(),
     server,
-    ssr,
-    tinyId,
-    undom,
+    ssr: new Ssr(),
+    tinyId: new TinyId(),
   })
 
   const html = await server.route(req.path)

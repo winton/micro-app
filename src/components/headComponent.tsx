@@ -1,7 +1,7 @@
-/** @jsx render.createElement */
+/** @jsx this.render.createElement */
 import render from "@fn2/render"
 
-class HeadComponent {
+export class HeadComponent {
   render: typeof render = null
 
   build(): Element {

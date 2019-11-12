@@ -1,4 +1,4 @@
-/** @jsx render.createElement */
+/** @jsx this.render.createElement */
 import render from "@fn2/render"
 
 export class HomeComponent {
