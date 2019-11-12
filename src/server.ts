@@ -1,5 +1,5 @@
+import { fn2 } from "@fn2/loaded"
 import ssr from "@fn2/ssr"
-import undom from "undom"
 
 import headComponent from "./components/headComponent"
 import app from "./"
@@ -11,18 +11,23 @@ export class MicroAppServer {
   headComponent: typeof headComponent = null
 
   async route(path: string): Promise<string> {
-    this.ssr.resetUndom(undom())
+    const elements: {
+      body?: Element
+      head?: Element
+    } = {}
 
-    const component = await this.app.router
-      .route(path)
-      .build()
+    await fn2.run(elements, [], {
+      body: () => this.app.router.route(path).build(),
+      head: () => this.headComponent.build(),
+    })
 
-    const head = await this.headComponent.build()
+    for (const key in elements) {
+      if (elements[key]) {
+        elements[key] = this.ssr.serialize(elements[key])
+      }
+    }
 
-    const componentHtml = this.ssr.serializeHtml(component)
-    const headHtml = this.ssr.serializeHtml(head)
-
-    return `<!doctype html><html>${headHtml}<body>${componentHtml}</body></html>`
+    return `<!doctype html><html>${elements.head}<body>${elements.body}</body></html>`
   }
 }
 
