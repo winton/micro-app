@@ -1,3 +1,4 @@
+import { DevServer } from "@fn2/dev-server"
 import { Loaded } from "@fn2/loaded"
 import { Logger } from "@fn2/logger"
 import { Patch } from "@fn2/patch"
@@ -6,8 +7,6 @@ import { Router } from "@fn2/router"
 import { Ssr } from "@fn2/ssr"
 import { TinyId } from "@fn2/tiny-id"
 
-import fs from "fs-extra"
-import glob from "globby"
 import path from "path"
 import express from "express"
 import undom from "undom"
@@ -23,25 +22,7 @@ import { NotFoundComponent } from "./components/notFoundComponent"
 const port = 4000
 const http = express()
 
-http.get("/*.:ext", async (req, res) => {
-  const { ext } = req.params
-
-  let src = path.join(__dirname, "../", req.path)
-  let paths = await glob(src)
-
-  if (!paths.length && ext === "mjs") {
-    src = src.replace(/\.mjs$/, ".js")
-    paths = await glob(src)
-  }
-
-  if (paths.length) {
-    const body = (await fs.readFile(paths[0])).toString()
-    res.header("Content-Type", "text/javascript")
-    res.end(body)
-  } else {
-    res.status(404).send("404 Not Found")
-  }
-})
+new DevServer(http, path.join(__dirname, "../"))
 
 http.get(["/", "/*"], async (req, res) => {
   const server = new MicroAppServer()
