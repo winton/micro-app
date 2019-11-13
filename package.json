@@ -31,8 +31,6 @@
     "@types/node": "12.12.7",
     "@typescript-eslint/eslint-plugin": "2.7.0",
     "@typescript-eslint/parser": "2.7.0",
-    "@udacity/types-service-worker-mock": "1.0.1",
-    "cloudflare-worker-mock": "1.0.1",
     "eslint": "6.6.0",
     "eslint-config-prettier": "6.5.0",
     "eslint-plugin-prettier": "3.1.1",
@@ -53,7 +51,6 @@
     "ts-node": "8.5.0",
     "ts-node-dev": "1.0.0-pre.44",
     "ttab": "0.6.1",
-    "types-cloudflare-worker": "1.0.1",
     "typescript": "3.7.2"
   },
   "dependencies": {
