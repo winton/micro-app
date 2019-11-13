@@ -22,7 +22,7 @@ for ESM in $ESMS; do
   npx rollup $ESM --context this --file $MJS -f esm --sourcemap
 done
 
-npx rollup ./dist/cjs/stack.js \
+npx rollup ./clouds/cloudflare.js \
   -f cjs -c \
   --context this \
-  --file dist/server/micro-app-$VERSION_BUMP.js
+  --file dist/clouds/cloudflare.js
