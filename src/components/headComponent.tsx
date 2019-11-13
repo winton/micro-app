@@ -1,8 +1,8 @@
 import render from "@fn2/render"
-import mjsComponent from "./mjsComponent"
+import stackComponent from "./stackComponent"
 
 export class HeadComponent {
-  mjsComponent: typeof mjsComponent = null
+  stackComponent: typeof stackComponent = null
   render: typeof render = null
 
   build(): Element {
@@ -11,7 +11,7 @@ export class HeadComponent {
       <head>
         <meta charset="utf-8" />
         <link rel="icon" href="data:," />
-        {this.mjsComponent.build()}
+        {this.stackComponent.build()}
       </head>
     )
   }

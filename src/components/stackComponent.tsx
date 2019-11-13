@@ -1,6 +1,6 @@
 import render from "@fn2/render"
 
-export class MjsComponent {
+export class StackComponent {
   render: typeof render = null
 
   build(): Element {
@@ -32,4 +32,4 @@ import("/node_modules/@fn2/loaded/dist/mjs/loaded-*.mjs").then((lib) => {
   }
 }
 
-export default new MjsComponent()
+export default new StackComponent()

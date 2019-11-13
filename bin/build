@@ -21,3 +21,8 @@ for ESM in $ESMS; do
   MJS=dist/mjs/$BASE-$VERSION_BUMP.mjs
   npx rollup $ESM --context this --file $MJS -f esm --sourcemap
 done
+
+npx rollup ./dist/cjs/stack.js \
+  -f cjs -c \
+  --context this \
+  --file dist/server/micro-app-$VERSION_BUMP.js
