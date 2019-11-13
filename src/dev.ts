@@ -1,5 +1,5 @@
-import path from "path"
 import express from "express"
+import path from "path"
 import undom from "undom"
 
 import { DevServer } from "@fn2/dev-server"
