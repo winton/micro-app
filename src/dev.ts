@@ -1,3 +1,7 @@
+import path from "path"
+import express from "express"
+import undom from "undom"
+
 import { DevServer } from "@fn2/dev-server"
 import { Loaded } from "@fn2/loaded"
 import { Logger } from "@fn2/logger"
@@ -6,10 +10,6 @@ import { Render } from "@fn2/render"
 import { Router } from "@fn2/router"
 import { Ssr } from "@fn2/ssr"
 import { TinyId } from "@fn2/tiny-id"
-
-import path from "path"
-import express from "express"
-import undom from "undom"
 
 import { MicroApp } from "./"
 import { MicroAppServer } from "./server"
