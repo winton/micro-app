@@ -23,32 +23,23 @@ import { NotFoundComponent } from "./components/notFoundComponent"
 const port = 4000
 const http = express()
 
-http.get("/:format/:lib/:name.:ext", async (req, res) => {
-  const { ext, format, lib, name } = req.params
-  const root = path.join(__dirname, "../")
-  const modules = `${root}node_modules/`
+http.get("/*.:ext", async (req, res) => {
+  const { ext } = req.params
 
-  let globs: string[]
+  let src = path.join(__dirname, "../", req.path)
+  let paths = await glob(src)
 
-  if (lib === "app") {
-    const esmExt = ext === "mjs" ? "js" : ext
-    globs = [
-      `${root}dist/${format}/${name}.${esmExt}`,
-      `${root}dist/${format}/components/${name}.${esmExt}`,
-    ]
-  } else {
-    globs = [
-      `${modules}@fn2/${lib}/dist/${format}/${lib}-*.${ext}`,
-      `${modules}@fn2/${lib}/dist/${format}/${name}.${ext}`,
-    ]
+  if (!paths.length && ext === "mjs") {
+    src = src.replace(/\.mjs$/, ".js")
+    paths = await glob(src)
   }
 
-  const paths = await glob(globs)
-
-  for (const path of paths) {
-    const mjs = (await fs.readFile(path)).toString()
+  if (paths.length) {
+    const body = (await fs.readFile(paths[0])).toString()
     res.header("Content-Type", "text/javascript")
-    res.end(mjs)
+    res.end(body)
+  } else {
+    res.status(404).send("404 Not Found")
   }
 })
 

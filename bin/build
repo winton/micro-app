@@ -19,5 +19,5 @@ for ESM in $ESMS; do
   BASE=${ESM##*/}
   BASE=${BASE%.*}
   MJS=dist/mjs/$BASE-$VERSION_BUMP.mjs
-  npx rollup $ESM --context this --file $MJS -f esm
+  npx rollup $ESM --context this --file $MJS -f esm --sourcemap
 done

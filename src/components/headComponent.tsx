@@ -11,9 +11,6 @@ export class HeadComponent {
       <head>
         <meta charset="utf-8" />
         <link rel="icon" href="data:," />
-        <script>
-          {"window.process = { env: { LOG: 1 } }"}
-        </script>
         {this.mjsComponent.build()}
       </head>
     )

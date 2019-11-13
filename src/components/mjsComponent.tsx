@@ -10,22 +10,23 @@ export class MjsComponent {
 
   script(): string {
     return `
-import loaded from "/mjs/loaded/index.mjs"
+const stack = {
+  app: import("/dist/esm/index.mjs"),
+  client: import("/dist/esm/client.mjs"),
+  homeComponent: import("/dist/esm/components/homeComponent.mjs"),
+  logger: import("/node_modules/@fn2/logger/dist/mjs/logger-*.mjs"),
+  patch: import("/node_modules/@fn2/patch/dist/mjs/patch-*.mjs"),
+  render: import("/node_modules/@fn2/render/dist/mjs/render-*.mjs"),
+  router: import("/node_modules/@fn2/router/dist/mjs/router-*.mjs"),
+  tinyId: import("/node_modules/@fn2/tiny-id/dist/mjs/tiny-id-*.mjs"),
+}
 
-window.loaded = loaded
-
-loaded.load({
-  app: import("/esm/app/index.mjs"),
-  client: import("/esm/app/client.mjs"),
-  homeComponent: import("/esm/app/homeComponent.mjs"),
-  logger: import("/mjs/logger/index.mjs"),
-  patch: import("/mjs/patch/index.mjs"),
-  render: import("/mjs/render/index.mjs"),
-  router: import("/mjs/router/index.mjs"),
-  tinyId: import("/mjs/tiny-id/index.mjs"),
+import("/node_modules/@fn2/loaded/dist/mjs/loaded-*.mjs").then((lib) => {
+  window.loaded = lib.default
+  window.process = { env: { LOG: true } }
+  return loaded.load(stack)
 }).then(({ client }) => {
-  console.log("!!! made it")
-  client.route()
+  console.log("!!! made it", client.route().build())
 })
 `
   }
