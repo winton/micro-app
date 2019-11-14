@@ -4,7 +4,8 @@ const assets = "http://micro-app.s3.amazonaws.com"
 
 async function handleRequest(req) {
   const url = new URL(req.url)
-  return await fetch(assets + url.pathname)
+  const path = url.pathname.replace(/^\/mjs\//, "/")
+  return await fetch(assets + path)
 }
 
 addEventListener("fetch", event => {

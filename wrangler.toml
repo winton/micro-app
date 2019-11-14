@@ -1,12 +1,13 @@
 name="micro-app-dev"
-account_id = ""
 type = "webpack"
 workers_dev = true
+
+account_id = ""
 zone_id = ""
 
 [env.assets]
 name = "micro-app-assets"
-route = "fn2.dev/*.mjs"
+route = "fn2.dev/mjs/*"
 webpack_config = "clouds/cloudflare/webpack.assets.js"
 
 [env.server]

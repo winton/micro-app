@@ -15,7 +15,7 @@ const rules = mjs.map(function(p) {
     loader: "string-replace-loader",
     options: {
       search: "\"\\/[\\w\\/@-]+" + base + "(-\\*)?\\.mjs",
-      replace: "\"/" + baseWithVersion,
+      replace: "\"/mjs/" + baseWithVersion,
       flags: "ig"
     }
   }
