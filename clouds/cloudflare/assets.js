@@ -1,8 +1,8 @@
 /* eslint-disable */
 
-import cors from "@fn2/cors-worker"
-
 const assets = "http://micro-app.s3.amazonaws.com"
+
+import cors from "@fn2/cors-worker"
 
 async function handleRequest(req) {
   const url = new URL(req.url)
