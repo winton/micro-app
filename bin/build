@@ -21,8 +21,3 @@ for ESM in $ESMS; do
   MJS=dist/mjs/$BASE-$VERSION_BUMP.mjs
   npx rollup $ESM --context this --file $MJS -f esm --sourcemap
 done
-
-# npx rollup ./clouds/cloudflare.js \
-#   -f cjs -c \
-#   --context this \
-#   --file dist/clouds/cloudflare.js
