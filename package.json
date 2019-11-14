@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "Micro web app (MJS + JSX + SSR) 🌊",
-  "main": "dist/clouds/cloudflare.js",
+  "main": "dist/cjs/index.js",
   "scripts": {
     "build": "./bin/build",
     "dev": "ts-node-dev --respawn --transpileOnly --notify false ./src/dev",
@@ -44,8 +44,6 @@
     "prettier": "1.19.1",
     "release-it": "12.4.3",
     "rollup": "1.27.0",
-    "rollup-plugin-commonjs": "10.1.0",
-    "rollup-plugin-node-resolve": "5.2.0",
     "semver": "6.3.0",
     "terser": "4.4.0",
     "ts-node": "8.5.0",

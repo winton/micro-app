@@ -1,7 +1,8 @@
 name = "micro-app"
-type = "javascript"
+type = "webpack"
 
 account_id = ""
-workers_dev = true
 route = ""
+webpack_config = "clouds/cloudflare.webpack.js"
+workers_dev = true
 zone_id = ""
