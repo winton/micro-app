@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "description": "Micro web app (MJS + JSX + SSR) 🌊",
-  "main": "dist/cjs/index.js",
+  "main": "dist/clouds/cloudflare.js",
   "scripts": {
     "build": "./bin/build",
     "dev": "ts-node-dev --respawn --transpileOnly --notify false ./src/dev",

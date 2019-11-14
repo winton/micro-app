@@ -2,9 +2,10 @@
 
 const stack = require("../dist/cjs/stack")
 
-async function handleRequest(request) {
-  const { server } = await stack()
-  const html = await server.route(req.path)
+async function handleRequest(req) {
+  const url = new URL(req.url)
+  const { server } = await stack.default()
+  const html = await server.route(url.pathname)
 
   return new Response(html, {
     headers: { "content-type": "text/html" },
