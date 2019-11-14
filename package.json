@@ -55,6 +55,7 @@
     "typescript": "3.7.2"
   },
   "dependencies": {
+    "@fn2/cors-worker": "0.1.0",
     "@fn2/loaded": "0.22.0",
     "@fn2/logger": "0.8.0",
     "@fn2/patch": "0.10.0",
