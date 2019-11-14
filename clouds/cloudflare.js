@@ -1,10 +1,11 @@
 /* eslint-disable */
 
-const stack = require("../dist/cjs/stack")
+const stack = require("../dist/cjs/stack").default
 
 async function handleRequest(req) {
+  const { server } = await stack()
+  
   const url = new URL(req.url)
-  const { server } = await stack.default()
   const html = await server.route(url.pathname)
 
   return new Response(html, {
