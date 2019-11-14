@@ -25,5 +25,7 @@ done
 LIBS="$(ls -d node_modules/\@fn2/*)"
 
 for LIB in $LIBS; do
-  cp $LIB/dist/mjs/*.mjs dist/mjs
+  if [ -f $LIB/dist/mjs/*.mjs ]; then
+    cp $LIB/dist/mjs/*.mjs dist/mjs
+  fi
 done

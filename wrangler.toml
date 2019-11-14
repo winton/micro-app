@@ -1,8 +1,15 @@
-name = "micro-app"
-type = "webpack"
-
+name="micro-app-dev"
 account_id = ""
-route = ""
-webpack_config = "clouds/cloudflare.webpack.js"
+type = "webpack"
 workers_dev = true
 zone_id = ""
+
+[env.assets]
+name = "micro-app-assets"
+route = "fn2.dev/*.mjs"
+webpack_config = "clouds/cloudflare/webpack.assets.js"
+
+[env.server]
+name = "micro-app-server"
+route = "fn2.dev/*"
+webpack_config = "clouds/cloudflare/webpack.server.js"

@@ -3,9 +3,8 @@
 const globby = require("globby")
 const path = require("path")
 
-const mjs = globby.sync(
-  path.join(__dirname, "../dist/mjs/*.mjs")
-)
+const root = path.join(__dirname, "../../")
+const mjs = globby.sync(path.join(root, "dist/mjs/*.mjs"))
 
 const rules = mjs.map(function(p) {
   const baseWithVersion = path.basename(p)
@@ -23,7 +22,7 @@ const rules = mjs.map(function(p) {
 })
 
 module.exports = {
-  entry: "./clouds/cloudflare.js",
+  entry: path.join(__dirname, "server.js"),
   target: "webworker",
   module: { rules: rules }
 }

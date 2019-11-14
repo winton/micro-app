@@ -14,4 +14,5 @@ aws s3 cp \
   --acl public-read-write \
   --content-type text/javascript \
   --recursive \
+  --exclude "*.map" \
   --include "*.mjs"
