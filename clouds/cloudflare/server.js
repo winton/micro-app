@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-const stack = require("../../dist/cjs/stack").default
+import stack from "../../dist/cjs/stack"
 
 async function handleRequest(req) {
   const { server } = await stack()
