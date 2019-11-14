@@ -2,21 +2,14 @@
 
 cd "$(dirname "$0")/../"
 
-LIBS=". $(ls -d node_modules/\@fn2/*)"
+LIBS="$(ls -d dist/mjs/*.mjs)"
 
 for LIB in $LIBS; do
-  mkdir -p dist/upload
-  cp $LIB/dist/mjs/*.mjs dist/upload
-
-  MJSS="$(ls -d dist/upload/*.mjs)"
-
-  for MJS in $MJSS; do
-    npx terser $MJS --compress -m -o $MJS
-  done
+  npx terser $LIB --compress -m -o $LIB
 done
 
 aws s3 cp \
-  dist/upload \
+  dist/mjs \
   s3://micro-app \
   --acl public-read-write \
   --content-type text/javascript \
