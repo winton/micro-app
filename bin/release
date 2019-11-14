@@ -5,5 +5,7 @@ cd "$(dirname "$0")/../"
 BUMP=${1:-minor}
 
 ./bin/build
+./bin/upload
+
 git status
 npx release-it --no-npm.publish --ci -i $BUMP

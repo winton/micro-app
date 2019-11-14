@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+const cdn = "https://cdn.fn2.dev"
+
 const globby = require("globby")
 const path = require("path")
 
@@ -15,7 +17,7 @@ const rules = mjs.map(function(p) {
     loader: "string-replace-loader",
     options: {
       search: "\"\\/[\\w\\/@-]+" + base + "(-\\*)?\\.mjs",
-      replace: "\"/mjs/" + baseWithVersion,
+      replace: "\"" + cdn + "/" + baseWithVersion + "?2",
       flags: "ig"
     }
   }

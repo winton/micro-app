@@ -7,6 +7,8 @@
   "scripts": {
     "build": "./bin/build",
     "dev": "ts-node-dev --respawn --transpileOnly --notify false ./src/dev",
+    "deploy": "wrangler publish --env server",
+    "deploy:assets": "wrangler publish --env assets",
     "release": "./bin/release",
     "start": "ttab 'npm run dev'; ttab 'npm run watch'",
     "test": "mocha",
