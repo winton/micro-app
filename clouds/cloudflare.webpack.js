@@ -3,7 +3,9 @@
 const globby = require("globby")
 const path = require("path")
 
-const mjs = globby.sync(path.join(__dirname, "../dist/mjs/*.mjs"))
+const mjs = globby.sync(
+  path.join(__dirname, "../dist/mjs/*.mjs")
+)
 
 const rules = mjs.map(function(p) {
   const baseWithVersion = path.basename(p)
