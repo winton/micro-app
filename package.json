@@ -7,7 +7,7 @@
   "scripts": {
     "build": "./bin/build",
     "dev": "ts-node-dev --respawn --transpileOnly --notify false ./src/dev",
-    "deploy": "wrangler publish --env server",
+    "deploy": "npm run release && wrangler publish --env server",
     "deploy:assets": "wrangler publish --env assets",
     "release": "./bin/release",
     "start": "ttab 'npm run dev'; ttab 'npm run watch'",
@@ -59,9 +59,9 @@
     "@fn2/loaded": "0.22.0",
     "@fn2/logger": "0.8.0",
     "@fn2/patch": "0.10.0",
-    "@fn2/render": "0.10.0",
+    "@fn2/render": "0.11.0",
     "@fn2/router": "0.6.0",
-    "@fn2/ssr": "0.5.0",
+    "@fn2/ssr": "0.6.0",
     "@fn2/tiny-id": "0.5.0",
     "globby": "10.0.1",
     "undom": "0.4.0"

@@ -15,8 +15,8 @@ export class MicroAppServer {
     const elements: Record<string, Element> = {}
 
     await this.fn2.run(elements, [], {
-      body: () => this.app.router.route(path).build(),
-      head: () => this.headComponent.build(),
+      body: () => this.app.router.route(path).element(),
+      head: () => this.headComponent.element(),
     })
 
     const body = this.ssr.serialize(elements.body)

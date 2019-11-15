@@ -3,7 +3,7 @@ import render from "@fn2/render"
 export class StackComponent {
   render: typeof render = null
 
-  build(): Element {
+  async element(): Promise<Element> {
     const self = this // eslint-disable-line
     return <script type="module">{this.script()}</script>
   }
@@ -26,7 +26,7 @@ import("/node_modules/@fn2/loaded/dist/mjs/loaded-*.mjs").then((lib) => {
   window.process = { env: { LOG: true } }
   return loaded.load(stack)
 }).then(({ client }) => {
-  console.log("!!! made it", client.route().build())
+  client.route().element()
 })
 `
   }
