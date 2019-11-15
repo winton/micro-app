@@ -14,6 +14,7 @@ const stack = {
   app: import("/dist/esm/index.mjs"),
   client: import("/dist/esm/client.mjs"),
   homeComponent: import("/dist/esm/components/homeComponent.mjs"),
+  notFoundComponent: import("/dist/esm/components/notFoundComponent.mjs"),
   logger: import("/node_modules/@fn2/logger/dist/mjs/logger-*.mjs"),
   patch: import("/node_modules/@fn2/patch/dist/mjs/patch-*.mjs"),
   render: import("/node_modules/@fn2/render/dist/mjs/render-*.mjs"),
