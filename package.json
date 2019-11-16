@@ -27,7 +27,7 @@
   "homepage": "https://github.com/winton/micro-app#readme",
   "devDependencies": {
     "@fn2/dev-server": "0.1.0",
-    "@fn2/loaded": "0.29.0",
+    "@fn2/loaded": "0.30.0",
     "@types/express": "4.17.2",
     "@types/fs-extra": "8.0.1",
     "@types/mocha": "5.2.7",
