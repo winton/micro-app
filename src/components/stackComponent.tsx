@@ -22,9 +22,8 @@ export class StackComponent {
 
   stack(): Record<string, string> {
     return {
+      // libs
       app: "/dist/esm/index.mjs",
-      homeComponent:
-        "/dist/esm/components/homeComponent.mjs",
       client: "/dist/esm/client.mjs",
       loaded:
         "/node_modules/@fn2/loaded/dist/mjs/loaded-*.mjs",
@@ -38,6 +37,11 @@ export class StackComponent {
         "/node_modules/@fn2/router/dist/mjs/router-*.mjs",
       tinyId:
         "/node_modules/@fn2/tiny-id/dist/mjs/tiny-id-*.mjs",
+      // components
+      homeComponent:
+        "/dist/esm/components/homeComponent.mjs",
+      notFoundComponent:
+        "/dist/esm/components/notFoundComponent.mjs",
     }
   }
 }
