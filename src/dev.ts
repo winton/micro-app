@@ -12,8 +12,8 @@ new DevServer(http, path.join(__dirname, "../"))
 
 http.get(["/", "/*"], async (req, res) => {
   const { server } = await stack()
-  const html = await server.route(req.path)
-  res.end(html)
+  const [code, html] = await server.route(req.path)
+  res.status(code).end(html)
 })
 
 http.listen({ port }, () =>

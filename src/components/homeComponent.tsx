@@ -1,8 +1,7 @@
 import render from "@fn2/render"
 
-const browser = typeof history !== "undefined"
-
 export class HomeComponent {
+  browser: boolean = null
   render: typeof render = null
 
   id = "home"
@@ -11,7 +10,7 @@ export class HomeComponent {
     const self = this // eslint-disable-line
     return (
       <h1 id={this.id}>
-        {browser ? "Client home" : "Server home"}
+        {this.browser ? "Client home" : "Server home"}
       </h1>
     )
   }

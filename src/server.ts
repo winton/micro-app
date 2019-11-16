@@ -12,7 +12,7 @@ export class MicroAppServer {
 
   headComponent: typeof headComponent = null
 
-  async route(path: string): Promise<string> {
+  async route(path: string): Promise<[number, string]> {
     const elements: Record<string, Element> = {}
     const componentName = this.app.router.route(path)
     const component = this.libs[componentName]
@@ -25,7 +25,14 @@ export class MicroAppServer {
     const body = this.ssr.serialize(elements.body)
     const head = this.ssr.serialize(elements.head)
 
-    return `<!doctype html><html>${head}<body>${body}</body></html>`
+    const code = componentName.match(/^notFound/)
+      ? 404
+      : 200
+
+    return [
+      code,
+      `<!doctype html><html>${head}<body>${body}</body></html>`,
+    ]
   }
 }
 
