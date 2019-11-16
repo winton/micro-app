@@ -5,13 +5,13 @@ export class HeadComponent {
   stackComponent: typeof stackComponent = null
   render: typeof render = null
 
-  async element(): Promise<Element> {
+  async element(path: string): Promise<Element> {
     const self = this // eslint-disable-line
     return (
       <head>
         <meta charset="utf-8" />
         <link rel="icon" href="data:," />
-        {await this.stackComponent.element()}
+        {await this.stackComponent.element(path)}
       </head>
     )
   }
