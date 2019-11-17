@@ -8,6 +8,28 @@ export class StackComponent {
   render: typeof render = null
   ssr: typeof ssr = null
 
+  libs = {
+    app: "/dist/esm/index.mjs",
+    client: "/dist/esm/client.mjs",
+    loaded:
+      "/node_modules/@fn2/loaded/dist/mjs/loaded-*.mjs",
+    logger:
+      "/node_modules/@fn2/logger/dist/mjs/logger-*.mjs",
+    patch: "/node_modules/@fn2/patch/dist/mjs/patch-*.mjs",
+    render:
+      "/node_modules/@fn2/render/dist/mjs/render-*.mjs",
+    router:
+      "/node_modules/@fn2/router/dist/mjs/router-*.mjs",
+    tinyId:
+      "/node_modules/@fn2/tiny-id/dist/mjs/tiny-id-*.mjs",
+  }
+
+  components = {
+    homeComponent: "/dist/esm/components/homeComponent.mjs",
+    notFoundComponent:
+      "/dist/esm/components/notFoundComponent.mjs",
+  }
+
   async element(path: string): Promise<Element> {
     const self = this
     return (
@@ -18,33 +40,9 @@ export class StackComponent {
   script(path: string): string {
     return this.ssr.script(
       this.app.router.route(path),
-      this.stack()
+      this.libs,
+      this.components
     )
-  }
-
-  stack(): Record<string, string> {
-    return {
-      // libs
-      app: "/dist/esm/index.mjs",
-      client: "/dist/esm/client.mjs",
-      loaded:
-        "/node_modules/@fn2/loaded/dist/mjs/loaded-*.mjs",
-      logger:
-        "/node_modules/@fn2/logger/dist/mjs/logger-*.mjs",
-      patch:
-        "/node_modules/@fn2/patch/dist/mjs/patch-*.mjs",
-      render:
-        "/node_modules/@fn2/render/dist/mjs/render-*.mjs",
-      router:
-        "/node_modules/@fn2/router/dist/mjs/router-*.mjs",
-      tinyId:
-        "/node_modules/@fn2/tiny-id/dist/mjs/tiny-id-*.mjs",
-      // components
-      homeComponent:
-        "/dist/esm/components/homeComponent.mjs",
-      notFoundComponent:
-        "/dist/esm/components/notFoundComponent.mjs",
-    }
   }
 }
 
