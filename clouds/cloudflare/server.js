@@ -11,7 +11,7 @@ async function handleRequest(req) {
   return new Response(html, {
     headers: {
       "content-type": "text/html",
-      "cache-control": "s-maxage=86400, max-age=600"
+      "cache-control": "public, s-maxage=86400, max-age=600"
     },
     status: code
   })
