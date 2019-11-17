@@ -6,33 +6,26 @@ import app from "./"
 
 export class MicroAppServer {
   app: typeof app = null
-  fn2: Fn2 = null
   libs: typeof loaded.libs = null
   ssr: typeof ssr = null
 
   headComponent: typeof headComponent = null
 
   async route(path: string): Promise<[number, string]> {
-    const elements: Record<string, Element> = {}
     const componentName = this.app.router.route(path)
-    const component = this.libs[componentName]
-
-    await this.fn2.run(elements, [], {
-      body: () => component.element(),
-      head: () => this.headComponent.element(path),
-    })
-
-    const body = this.ssr.serialize(elements.body)
-    const head = this.ssr.serialize(elements.head)
+    const bodyComponent = this.libs[componentName]
 
     const code = componentName.match(/^notFound/)
       ? 404
       : 200
 
-    return [
-      code,
-      `<!doctype html><html>${head}<body>${body}</body></html>`,
-    ]
+    const layout = await this.ssr.layout(
+      this.headComponent,
+      bodyComponent,
+      path
+    )
+
+    return [code, layout]
   }
 }
 

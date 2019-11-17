@@ -13,6 +13,7 @@ new DevServer(http, path.join(__dirname, "../"))
 http.get(["/", "/*"], async (req, res) => {
   const { server } = await stack()
   const [code, html] = await server.route(req.path)
+
   res.status(code).send(html)
 })
 

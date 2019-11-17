@@ -16,8 +16,10 @@ export class StackComponent {
   }
 
   script(path: string): string {
-    const component = this.app.router.route(path)
-    return this.ssr.clientScript(component, this.stack())
+    return this.ssr.clientScript(
+      this.app.router.route(path),
+      this.stack()
+    )
   }
 
   stack(): Record<string, string> {
