@@ -9,7 +9,10 @@ async function handleRequest(req) {
   const [code, html] = await server.route(url.pathname)
 
   return new Response(html, {
-    headers: { "content-type": "text/html" },
+    headers: {
+      "content-type": "text/html",
+      "cache-control": "s-maxage=86400, max-age=600"
+    },
     status: code
   })
 }
