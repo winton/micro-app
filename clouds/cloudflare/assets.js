@@ -12,10 +12,7 @@ async function handleRequest(req) {
     return cors.handleOptions(req)
   } else {
     const res = cors.addCors(await fetch(assets + path))
-    res.headers.append(
-      "cache-control",
-      "s-maxage=86400, max-age=600"
-    )
+    res.headers.append("cache-control", "max-age=604800")
     return res
   }
 }
