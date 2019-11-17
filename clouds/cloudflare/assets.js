@@ -13,8 +13,10 @@ async function handleRequest(req) {
   } else {
     const out = await fetch(assets + path)
     const res = cors.addCors(new Response(out.body))
+
     res.headers.set("content-type", out.headers.get("content-type"))
     res.headers.append("cache-control", "public, max-age=604800")
+    
     return res
   }
 }
