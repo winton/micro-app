@@ -7,7 +7,7 @@ export class HomeComponent {
   id = "home"
 
   async element(): Promise<Element> {
-    const self = this // eslint-disable-line
+    const self = this
     return (
       <h1 id={this.id}>
         {this.browser ? "Client home" : "Server home"}

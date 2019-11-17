@@ -6,7 +6,7 @@ export class HeadComponent {
   render: typeof render = null
 
   async element(path: string): Promise<Element> {
-    const self = this // eslint-disable-line
+    const self = this
     return (
       <head>
         <meta charset="utf-8" />

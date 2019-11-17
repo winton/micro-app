@@ -9,14 +9,14 @@ export class StackComponent {
   ssr: typeof ssr = null
 
   async element(path: string): Promise<Element> {
-    const self = this // eslint-disable-line
+    const self = this
     return (
       <script type="module">{this.script(path)}</script>
     )
   }
 
   script(path: string): string {
-    return this.ssr.clientScript(
+    return this.ssr.script(
       this.app.router.route(path),
       this.stack()
     )

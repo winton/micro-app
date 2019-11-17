@@ -7,7 +7,7 @@ export class NotFoundComponent {
   id = "not-found"
 
   async element(): Promise<Element> {
-    const self = this // eslint-disable-line
+    const self = this
     return (
       <h1 id={this.id}>
         404 Not Found {this.browser ? "Client" : "Server"}
