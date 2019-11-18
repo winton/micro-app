@@ -14,7 +14,7 @@ The aim of this project is to implement a web component stack that is as fast an
 
 On the client, libraries are packaged as individual MJS files and dynamically imported in parallel. There is no need to compile bundles, and each page composes its own dynamic stack.
 
-On the server, Cloudflare Workers serve assets from S3 and render the HTML response using less than 10kb of code.
+On the server, Cloudflare Workers serve assets from S3 and render the HTML response using less than 10kb of total packaged code.
 
 ## Develop
 
