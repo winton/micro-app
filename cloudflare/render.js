@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import stack from "../../dist/cjs/stack"
+import stack from "../dist/cjs/stack"
 
 async function handleRequest(req) {
   const { server } = await stack()
