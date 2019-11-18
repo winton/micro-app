@@ -15,7 +15,7 @@ async function handleRequest(req) {
     const res = cors.addCors(new Response(out.body))
 
     res.headers.set("content-type", out.headers.get("content-type"))
-    res.headers.append("cache-control", "public, max-age=604800")
+    res.headers.set("cache-control", "public, max-age=604800")
     
     return res
   }
