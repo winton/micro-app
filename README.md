@@ -6,7 +6,7 @@ Live deployment at <https://fn2.dev>
 
 ## Architecture
 
-<img align="right" src="https://cdn.fn2.dev/waterfall.png">
+<img align="right" src="https://cdn.fn2.dev/waterfall.png" width=200>
 
 The aim of this project is to implement a web component stack that is as fast and small as possible.
 
