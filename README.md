@@ -44,16 +44,26 @@ npm run deploy:assets
 
 > ℹ️ The regular deploy command uploads new assets. You only need to deploy this worker if you modify [`cloudflare/assets.js`](https://github.com/winton/micro-app/blob/master/clouds/cloudflare/assets.js).
 
-## Update
-
-```bash
-npm run update
-npm install
-```
-
 ## Add a route
 
 1. Create a new component in [`src/components`](https://github.com/winton/micro-app/tree/master/src/components).
 2. Add a route for the component in [`src/index.ts`](https://github.com/winton/micro-app/blob/master/src/index.ts).
 3. Add the component to the server side stack in [`src/stack.ts`](https://github.com/winton/micro-app/blob/master/src/stack.ts).
 4. Add the component to the client side stack in [`src/components/stackComponent.ts`](https://github.com/winton/micro-app/blob/master/src/components/stackComponent.tsx).
+
+## Update packages
+
+```bash
+npm run update
+npm install
+```
+
+## Cloudflare configuration
+
+### Cloudflare DNS
+
+<img src="https://cdn.fn2.dev/cloudflare-dns.png" width="80%">
+
+### Cloudflare page rules
+
+<img src="https://cdn.fn2.dev/cloudflare-page-rules.png" width="80%">
