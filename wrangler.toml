@@ -8,9 +8,9 @@ account_id = "265f02507c8f9d3865be6f5e69e8895a"
 [env.assets]
 name = "micro-app-assets"
 route = "cdn.fn2.dev/*"
-webpack_config = "clouds/cloudflare/webpack.assets.js"
+webpack_config = "cloudflare/webpack.assets.js"
 
 [env.server]
 name = "micro-app-server"
 route = "fn2.dev/*"
-webpack_config = "clouds/cloudflare/webpack.server.js"
+webpack_config = "cloudflare/webpack.render.js"

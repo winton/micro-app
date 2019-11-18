@@ -2,7 +2,7 @@
   "name": "@fn2/micro-app",
   "private": true,
   "version": "0.15.0",
-  "description": "Micro web app (MJS + JSX + SSR) 🌊",
+  "description": "Micro web component stack (MJS + JSX + SSR) 🌊",
   "main": "dist/cjs/index.js",
   "scripts": {
     "build": "./bin/build",

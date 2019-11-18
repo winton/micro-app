@@ -1,8 +1,8 @@
 # micro-app
 
-Micro web app (MJS + JSX + SSR) 🌊
+Micro web component stack (MJS + JSX + SSR) 🌊
 
-Live deployment at <https://fn2.dev>
+Live deployment: <https://fn2.dev>
 
 ## Architecture
 
@@ -21,17 +21,28 @@ npm install
 npm run start
 ```
 
-## Deploy render worker
+## Deploy
+
+To deploy to Cloudflare, you'll need to install and configure wrangler:
+
+```bash
+npm i -g @cloudflare/wrangler
+wrangler config
+```
+
+### Deploy render worker
 
 ```bash
 npm run deploy
 ```
 
-## Deploy asset worker
+### Deploy asset worker
 
 ```bash
 npm run deploy:assets
 ```
+
+> ℹ️ The regular deploy command uploads new assets. You only need to deploy this worker if you modify [`cloudflare/assets.js`](https://github.com/winton/micro-app/blob/master/clouds/cloudflare/assets.js).
 
 ## Update
 

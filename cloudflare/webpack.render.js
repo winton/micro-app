@@ -5,7 +5,7 @@ const cdn = "https://cdn.fn2.dev"
 const globby = require("globby")
 const path = require("path")
 
-const root = path.join(__dirname, "../../")
+const root = path.join(__dirname, "../")
 const mjs = globby.sync(path.join(root, "dist/mjs/*.mjs"))
 
 const rules = mjs.map(function(p) {
@@ -24,7 +24,7 @@ const rules = mjs.map(function(p) {
 })
 
 module.exports = {
-  entry: path.join(__dirname, "server.js"),
+  entry: path.join(__dirname, "render.js"),
   target: "webworker",
   module: { rules: rules }
 }
