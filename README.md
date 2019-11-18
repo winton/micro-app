@@ -2,8 +2,9 @@
 
 Micro web component stack (MJS + JSX + SSR) 🌊
 
-[`src/components/homeComponent.tsx`](https://github.com/winton/micro-app/blob/master/src/components/homeComponent.tsx): <https://fn2.dev>
-[`src/components/notFoundComponent.tsx`](https://github.com/winton/micro-app/blob/master/src/components/notFoundComponent.tsx): <https://fn2.dev/does-not-exist>
+[`src/components/homeComponent.tsx`](https://github.com/winton/micro-app/blob/master/src/components/homeComponent.tsx) — <https://fn2.dev>
+
+[`src/components/notFoundComponent.tsx`](https://github.com/winton/micro-app/blob/master/src/components/notFoundComponent.tsx) — <https://fn2.dev/does-not-exist>
 
 ## Architecture
 
