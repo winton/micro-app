@@ -44,7 +44,7 @@ npm run deploy
 npm run deploy:assets
 ```
 
-> ℹ️ The regular deploy command uploads new assets. You only need to deploy this worker if you modify [`cloudflare/assets.js`](https://github.com/winton/micro-app/blob/master/clouds/cloudflare/assets.js).
+> ℹ️ The regular deploy command uploads new assets. You only need to deploy this worker if you modify [`cloudflare/assets.js`](https://github.com/winton/micro-app/blob/master/cloudflare/assets.js).
 
 ## Add a route
 
