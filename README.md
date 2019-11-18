@@ -62,8 +62,8 @@ npm install
 
 ### Cloudflare DNS
 
-<img src="https://cdn.fn2.dev/cloudflare-dns.png" width="80%">
+<img src="https://cdn.fn2.dev/cloudflare-dns.png" width=280>
 
 ### Cloudflare page rules
 
-<img src="https://cdn.fn2.dev/cloudflare-page-rules.png" width="80%">
+<img src="https://cdn.fn2.dev/cloudflare-page-rules.png" width=420>
