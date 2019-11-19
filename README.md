@@ -69,3 +69,14 @@ npm install
 ### Cloudflare page rules
 
 <img src="https://cdn.fn2.dev/cloudflare-page-rules.png" width=420>
+
+## Build your own project
+
+```bash
+npm i -g @fn2/boiler
+mkdir my-project
+cd my-project
+boiler
+```
+
+Then select "Web components" under "New project".
