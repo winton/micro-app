@@ -68,7 +68,7 @@ npm install
 
 ### Cloudflare page rules
 
-<img src="https://cdn.fn2.dev/cloudflare-page-rules.png" width=420>
+<img src="https://cdn.fn2.dev/cloudflare-page-rules.png" width=330>
 
 ## Build your own project
 
