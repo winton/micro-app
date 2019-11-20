@@ -2,6 +2,7 @@
 
 cd "$(dirname "$0")/../"
 
+BUCKET="micro-app"
 LIBS="$(ls -d dist/mjs/*.mjs)"
 
 for LIB in $LIBS; do
@@ -10,9 +11,16 @@ done
 
 aws s3 cp \
   dist/mjs \
-  s3://micro-app \
+  s3://$BUCKET \
   --acl public-read-write \
   --content-type text/javascript \
   --recursive \
   --exclude "*.map" \
   --include "*.mjs"
+
+aws s3 cp \
+  assets \
+  s3://$BUCKET \
+  --acl public-read-write \
+  --recursive \
+  --include "*"
