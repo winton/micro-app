@@ -1,7 +1,4 @@
-name="micro-app-dev"
 type = "webpack"
-workers_dev = true
-
 zone_id = "ac8335d26390e58f5d4919d94d364a62"
 account_id = "265f02507c8f9d3865be6f5e69e8895a"
 

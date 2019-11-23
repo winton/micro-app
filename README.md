@@ -12,9 +12,11 @@ Micro web component stack (MJS + JSX + SSR) 🌊
 
 The aim of this project is to implement a web component stack that is as fast and small as possible.
 
-On the client, libraries are packaged as individual MJS files and dynamically imported in parallel. There is no need to compile bundles, and each page composes its own dynamic stack.
+On the client, libraries are packaged as individual MJS files and dynamically imported in parallel. There is no need to
+compile bundles, and each page composes its own dynamic stack.
 
-On the server, Cloudflare Workers serve assets from S3 and render the HTML response using less than 10kb of total packaged code.
+On the server, Cloudflare Workers serve assets from S3 and render the HTML response using less than 10kb of total
+packaged code.
 
 ## Develop
 
@@ -44,14 +46,17 @@ npm run deploy
 npm run deploy:assets
 ```
 
-> ℹ️ The regular deploy command uploads new assets. You only need to deploy this worker if you modify [`cloudflare/assets.js`](https://github.com/winton/micro-app/blob/master/cloudflare/assets.js).
+> ℹ️ The regular deploy command uploads new assets. You only need to deploy this worker if you modify
+> [`cloudflare/assets.js`](cloudflare/assets.js).
 
 ## Add a route
 
-1. Create a new component in [`src/components`](https://github.com/winton/micro-app/tree/master/src/components).
-2. Add a route for the component in [`src/index.ts`](https://github.com/winton/micro-app/blob/master/src/index.ts).
-3. Add the component to the server side stack in [`src/stack.ts`](https://github.com/winton/micro-app/blob/master/src/stack.ts).
-4. Add the component to the client side stack in [`src/components/stackComponent.ts`](https://github.com/winton/micro-app/blob/master/src/components/stackComponent.tsx).
+1. Create a new component in [`src/components`](src/components).
+2. Add a route for the component in [`src/index.ts`](src/index.ts).
+3. Add the component to the server side stack in
+   [`src/stack.ts`](src/stack.ts).
+4. Add the component to the client side stack in
+   [`src/components/stackComponent.ts`](src/components/stackComponent.tsx).
 
 ## Update packages
 
@@ -72,10 +77,11 @@ npm install
 
 ## Build your own project
 
+Generate this project with your own naming by running [boiler](https://github.com/winton/boiler):
+
 ```bash
 npm i -g @fn2/boiler
-mkdir my-project
-cd my-project
+mkdir my-project; cd my-project
 boiler
 ```
 
